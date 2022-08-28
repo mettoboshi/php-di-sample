@@ -10,9 +10,11 @@ class Hoge
         $this->fuga = $fuga;
     }
 
-    public function hello()
+    public function hello(): string
     {
         echo "HOGE\n";
-        $this->fuga->hello();
+        $ret = $this->fuga->hello();
+
+        return "HOGE".$ret;
     }
 }
