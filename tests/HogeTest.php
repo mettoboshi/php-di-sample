@@ -3,11 +3,20 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use PHPUnit\Framework\TestCase;
+use DI\Container;
 use myapp\Hoge;
 use myapp\Fuga;
 
 final class HogeTest extends TestCase
 {
+    private $container;
+
+    protected function setUp(): void
+    {
+        $builder = new DI\ContainerBuilder();
+        $this->container = $builder->build();
+    }
+
     public function testHoge(): void
     {
         $fuga = new Fuga();
@@ -18,9 +27,6 @@ final class HogeTest extends TestCase
 
     public function testHogeDI(): void
     {
-        $builder = new DI\ContainerBuilder();
-        $container = $builder->build();
-
-        self::assertSame("HOGEFUGA", $container->get(Hoge::class)->hello());
+        self::assertSame("HOGEFUGA", $this->container->get(Hoge::class)->hello());
     }
 }
