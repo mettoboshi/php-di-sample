@@ -1,4 +1,6 @@
 <?php
+namespace myapp;
+
 class Hoge
 {
     protected $fuga;

@@ -1,10 +1,10 @@
 <?php
 
 require_once __DIR__.'/../vendor/autoload.php';
-require_once __DIR__ . '/fuga.php';
-require_once __DIR__ . '/hoge.php';
 
 use Psr\Container\ContainerInterface;
+use myapp\Hoge;
+use myapp\Fuga;
 
 $container = new DI\Container();
 $builder = new DI\ContainerBuilder();
